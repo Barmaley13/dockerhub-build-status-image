@@ -1,11 +1,4 @@
 
-// Load jquery
-var jq = document.createElement("script");
-
-jq.addEventListener("load", main); // pass my hoisted function
-jq.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js";
-document.querySelector("head").appendChild(jq);
-
 // No / at the end!
 var servers = ["https://dockerbuildbadges.quelltext.eu", ];
 
@@ -118,7 +111,14 @@ if (!parameters.repository) {
   set_text("name-shadow", "read the picture documentation")
 }
 
-function main() {
+// Load jquery
+var jq = document.createElement("script");
+
+jq.addEventListener("load", main); // pass my hoisted function
+jq.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+document.querySelector("head").appendChild(jq);
+
+function main () {
   for (var i = 0; i < servers.length; i += 1) {
     var server = servers[i];
     request_from_server(server);
