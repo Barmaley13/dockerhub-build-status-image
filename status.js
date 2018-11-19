@@ -1,5 +1,6 @@
 
 // No / at the end!
+document.domain = "barmaley13.github.io";
 var servers = ["https://dockerbuildbadges.quelltext.eu", ];
 
 function escapeHtml(unsafe) {
@@ -42,28 +43,12 @@ function request_from_server(server) {
           console.log(result);
           status_arrived(url, result);
       },
-      error: function (jqXHR, exception) {
-          var msg = '';
-          if (jqXHR.status === 0) {
-              msg = 'Not connect.\n Verify Network.';
-          } else if (jqXHR.status == 404) {
-              msg = 'Requested page not found. [404]';
-          } else if (jqXHR.status == 500) {
-              msg = 'Internal Server Error [500].';
-          } else if (exception === 'parsererror') {
-              msg = 'Requested JSON parse failed.';
-          } else if (exception === 'timeout') {
-              msg = 'Time out error.';
-          } else if (exception === 'abort') {
-              msg = 'Ajax request aborted.';
-          } else {
-              msg = 'Uncaught Error.\n' + jqXHR.responseText;
-          }
-          console.log(msg);
+      error: function(jqXHR, textStatus, errorThrown) {
+        console.log(textStatus, errorThrown);
       }
   });
 
-  // var url = server + "/build/" + parameters.organization + "/" + parameters.repository;
+  // // var url = server + "/build/" + parameters.organization + "/" + parameters.repository;
   // if (parameters.tag) {
   //   url += "?tag=" + tag;
   // }
