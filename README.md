@@ -31,10 +31,10 @@ API
   - `organization` is the dockerhub organization. Examples: `library` and `mariobehling`
   - `repository` is the repository in this organization. Examples: `nginx` and `loklak`
   - `tag` is optional, it is `latest` by default. Examples: `latest`
-  
+
   Headers:
   - `Access-Control-Allow-Origin: *`
-  
+
   Result:
   - In case the request had an error:  
     `{"request":"error","description":<text>}`  
@@ -45,7 +45,7 @@ API
     - Negative for an error. Example: `-1`
     - Positive for success. Example: `1`
     - It gets taken like from [this example](https://hub.docker.com/v2/repositories/library/nginx/)
-  
+
 - `GET /source`  
   Get the source code.
 
@@ -63,14 +63,15 @@ Parameters:
   If it is left out, the tag will be `latest`.
 - `text` is the text to show on the badge.
   If it is left out, the text will be `Docker`.
-  
+
 Examples:
 - ![](https://dockerbuildbadges.quelltext.eu/status.svg?organization=niccokunzmann&repository=dockerhub-build-status-image)
   `https://dockerbuildbadges.quelltext.eu/status.svg?organization=niccokunzmann&repository=dockerhub-build-status-image`
-- https://niccokunzmann.github.io/dockerhub-build-status-image/status.svg?organization=mariobehling&repository=loklak  
+- ![](https://niccokunzmann.github.io/dockerhub-build-status-image/status.svg?organization=mariobehling&repository=loklak)
+  `https://niccokunzmann.github.io/dockerhub-build-status-image/status.svg?organization=mariobehling&repository=loklak`
   If you have JavaScript enabled, this will ask for several servers.
   This is more fault in case servers go down.
-  
+
 Badge Servers
 -------------
 
