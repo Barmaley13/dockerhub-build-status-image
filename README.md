@@ -69,6 +69,7 @@ Examples:
   `https://dockerbuildbadges.quelltext.eu/status.svg?organization=niccokunzmann&repository=dockerhub-build-status-image`
 - ![](https://niccokunzmann.github.io/dockerhub-build-status-image/status.svg?organization=mariobehling&repository=loklak)
   `https://niccokunzmann.github.io/dockerhub-build-status-image/status.svg?organization=mariobehling&repository=loklak`
+
   If you have JavaScript enabled, this will ask for several servers.
   This is more fault in case servers go down.
 

@@ -1,6 +1,13 @@
 
+// // Load jquery
+// var jq = document.createElement("script");
+//
+// jq.addEventListener("load", proceed); // pass my hoisted function
+// jq.src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+// document.querySelector("head").appendChild(jq);
+
 // No / at the end!
-var servers = ["http://localhost", "https://dockerbuildbadges.quelltext.eu"];
+var servers = ["https://dockerbuildbadges.quelltext.eu", ];
 
 function escapeHtml(unsafe) {
   // from http://stackoverflow.com/a/6234804/1320237
@@ -30,7 +37,9 @@ function getQueryParams() {
 var parameters = getQueryParams();
 
 function request_from_server(server) {
-  var url = server + "/build/" + parameters.organization + "/" + parameters.repository;
+  var url = "https://hub.docker.com/v2/repositories/" + parameters.organization + "/" + parameters.repository + "/buildhistory/?page_size=100";
+
+  // var url = server + "/build/" + parameters.organization + "/" + parameters.repository;
   if (parameters.tag) {
     url += "?tag=" + tag;
   }
