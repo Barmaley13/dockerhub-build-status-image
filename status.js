@@ -2,7 +2,7 @@
 // Load jquery
 var jq = document.createElement("script");
 
-jq.addEventListener("load", proceed); // pass my hoisted function
+jq.addEventListener("load", main); // pass my hoisted function
 jq.src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js";
 document.querySelector("head").appendChild(jq);
 
@@ -118,7 +118,9 @@ if (!parameters.repository) {
   set_text("name-shadow", "read the picture documentation")
 }
 
-for (var i = 0; i < servers.length; i += 1) {
-  var server = servers[i];
-  request_from_server(server);
+function main() {
+  for (var i = 0; i < servers.length; i += 1) {
+    var server = servers[i];
+    request_from_server(server);
+  }
 }
