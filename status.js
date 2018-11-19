@@ -35,21 +35,16 @@ function request_from_server(server) {
 
   $.ajax({
       url: url,
-      headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-      },
       type: "POST", /* or type:"GET" or type:"PUT" */
       dataType: "jsonp",
-      data: {
-      },
       success: function (result) {
           console.log("Response from " + url);
           console.log(result);
           status_arrived(url, result);
-      },
-      error: function () {
-          console.log("error");
       }
+      // error: function () {
+      //     console.log("error");
+      // }
   });
 
   // var url = server + "/build/" + parameters.organization + "/" + parameters.repository;
