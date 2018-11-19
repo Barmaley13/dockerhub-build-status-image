@@ -12,8 +12,8 @@
     <path fill="url(#b)" d="M0 0h72v20H0z"/>
   </g>
   <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
-   <a xlink:href="https://github.com/barmaley13/dockerhub-build-status-image"
-      target="_blank">
+   <script xlink:href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <a xlink:href="https://github.com/barmaley13/dockerhub-build-status-image" target="_blank">
     <text id="name-shadow" x="21.5" y="15" fill="#010101" fill-opacity=".3">Docker</text>
     <text id="name" x="21.5" y="14">Docker</text>
     <text id="status-shadow" x="56.5" y="15" fill="#010101" fill-opacity=".3">???</text>
