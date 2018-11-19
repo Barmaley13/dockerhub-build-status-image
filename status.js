@@ -1,10 +1,10 @@
 
-// // Load jquery
-// var jq = document.createElement("script");
-//
-// jq.addEventListener("load", proceed); // pass my hoisted function
-// jq.src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js";
-// document.querySelector("head").appendChild(jq);
+// Load jquery
+var jq = document.createElement("script");
+
+jq.addEventListener("load", proceed); // pass my hoisted function
+jq.src = "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js";
+document.querySelector("head").appendChild(jq);
 
 // No / at the end!
 var servers = ["https://dockerbuildbadges.quelltext.eu", ];
@@ -38,23 +38,43 @@ var parameters = getQueryParams();
 
 function request_from_server(server) {
   var url = "https://hub.docker.com/v2/repositories/" + parameters.organization + "/" + parameters.repository + "/buildhistory/?page_size=100";
+  console.log("Requesting " + url);
+
+  $.ajax({
+      url: url,
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      type: "POST", /* or type:"GET" or type:"PUT" */
+      dataType: "jsonp",
+      data: {
+      },
+      success: function (result) {
+          console.log("Response from " + url);
+          console.log(result);
+          status_arrived(url, result);
+      },
+      error: function () {
+          console.log("error");
+      }
+  });
 
   // var url = server + "/build/" + parameters.organization + "/" + parameters.repository;
-  if (parameters.tag) {
-    url += "?tag=" + tag;
-  }
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var result = JSON.parse(this.responseText);
-        console.log("Response from " + url);
-        console.log(result);
-        status_arrived(url, result);
-    }
-  };
-  console.log("Requesting " + url);
-  xhttp.open("GET", url, true);
-  xhttp.send();
+  // if (parameters.tag) {
+  //   url += "?tag=" + tag;
+  // }
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.onreadystatechange = function() {
+  //   if (this.readyState == 4 && this.status == 200) {
+  //       var result = JSON.parse(this.responseText);
+  //       console.log("Response from " + url);
+  //       console.log(result);
+  //       status_arrived(url, result);
+  //   }
+  // };
+  // console.log("Requesting " + url);
+  // xhttp.open("GET", url, true);
+  // xhttp.send();
 }
 
 function status_arrived(url, status) {
