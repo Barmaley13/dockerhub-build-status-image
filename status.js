@@ -36,7 +36,7 @@ function request_from_server(server) {
 
   $.ajax({
       url: url,
-      type: "POST", /* or type:"GET" or type:"PUT" */
+      type: "GET",
       dataType: "jsonp",
       success: function (result) {
           console.log("Response from " + url);
